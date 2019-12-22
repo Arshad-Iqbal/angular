@@ -1,0 +1,26 @@
+<!-- Example of two way data binding -->
+<p>Following is the basic event based example.</p>
+<input type="text" [value]="text" (input)="updateValue($event)"><span> {{text}}</span>
+<br><br><br>
+<p>The same two-way data binding can also be achieved using NgModel</p>
+<input type="text" [(ngModel)]="ngModelText"><span> {{ngModelText}}</span>
+<br><br><br>
+<!-- property binding [value]="myVariable" vs Interpolation value="{{myVariable}}"-->
+<input type = "text" [value]="myVariable" [disabled]="myDisabledValue" /><br/>
+<button (click)="callMyFunction()">Click me!</button>
+<!-- Hello world! Following is the app-hello custom component. <app-hello></app-hello> -->
+
+<p>Example of ngFor directive</p>
+<table>
+    <thead>
+        <th>Sr no.</th>
+        <th>Name</th>
+        <th>Online?</th>
+    </thead>
+    <tr *ngFor = "let record of records; let theIndex = index; let evenRecord = even; let oddRecord = odd; let firstRecord = first; let lastRecord = last"  
+    [ngClass]="{odd1: oddRecord, even1: evenRecord, first:firstRecord, last:lastRecord}"> <!-- here index is the record index -->
+        <td>{{theIndex+1}}</td>
+        <td>{{record.name}}</td>
+        <td>{{record.isOnline}}</td>
+    </tr>
+</table>
